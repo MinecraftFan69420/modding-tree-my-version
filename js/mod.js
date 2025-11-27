@@ -1,27 +1,31 @@
 let modInfo = {
-	name: "The ??? Tree",
-	author: "nobody",
-	pointsName: "points",
-	modFiles: ["layers.js", "tree.js"],
+	name: "The Discord Incremental Tree",
+	author: "ur average minecraftian",
+	pointsName: "point(s)",
+	modFiles: ["layers/first.js", "tree.js"],
 
-	discordName: "",
-	discordLink: "",
-	initialStartPoints: new Decimal (10), // Used for hard resets and new players
+	discordName: "there's no discord",
+	discordLink: "there's no discord",
+	initialStartPoints: new Decimal(0), // Used for hard resets and new players
 	offlineLimit: 1,  // In hours
 }
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0",
-	name: "Literally nothing",
+	num: "0.01",
+	name: "Created the mod",
 }
 
-let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.0</h3><br>
-		- Added things.<br>
-		- Added stuff.`
+let changelog = `<h1>THE CHANGELOG</h1><br>
+	<h3>v0.01</h3><br>
+	Started creating the mod! <br>
+	We got a layer and an upgrade!
+`
 
-let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
+let winText = `
+Congratulations! You beat the game, so either wait for more features or visit: 
+<a href="https://minecraftfan69420.github.io/card_incremental">Card Incremental!</a>
+`
 
 // If you add new functions anywhere inside of a layer, and those functions have an effect when called, add them here.
 // (The ones here are examples, all official functions are already taken care of)
@@ -32,16 +36,13 @@ function getStartPoints(){
 }
 
 // Determines if it should show points/sec
-function canGenPoints(){
-	return true
-}
+function canGenPoints(){return true}
 
 // Calculate points/sec!
 function getPointGen() {
-	if(!canGenPoints())
-		return new Decimal(0)
-
+	if(!canGenPoints()) return new Decimal(0)
 	let gain = new Decimal(1)
+	if (hasUpgrade("f", 11)) gain = gain.add(1)
 	return gain
 }
 
@@ -50,12 +51,11 @@ function addedPlayerData() { return {
 }}
 
 // Display extra things at the top of the page
-var displayThings = [
-]
+var displayThings = []
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.points.gte(new Decimal("e280000000"))
+	return player.points.gte(new Decimal(1000))
 }
 
 
