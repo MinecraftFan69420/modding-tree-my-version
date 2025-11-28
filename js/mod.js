@@ -41,8 +41,8 @@ function canGenPoints(){return true}
 // Calculate points/sec!
 function getPointGen() {
 	if(!canGenPoints()) return new Decimal(0)
-	let gain = new Decimal(1)
-	if (hasUpgrade("f", 11)) gain = gain.add(1)
+	let gain = new Decimal(0)
+	if(hasUpgrade("f", 11)) gain = gain.add(1)
 	return gain
 }
 
@@ -58,14 +58,10 @@ function isEndgame() {
 	return player.points.gte(new Decimal(1000))
 }
 
-
-
 // Less important things beyond this point!
 
 // Style for the background, can be a function
-var backgroundStyle = {
-
-}
+var backgroundStyle = {}
 
 // You can change this if you have things that can be messed up by long tick lengths
 function maxTickLength() {

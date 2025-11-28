@@ -23,8 +23,8 @@ addLayer("f", {
     row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {
-            key: "p", 
-            description: "P: Reset for first layer point(s)", 
+            key: "f", 
+            description: "F: Reset for first layer point(s)", 
             onPress() {if (canReset(this.layer)) doReset(this.layer)}
         },
     ],
@@ -32,8 +32,8 @@ addLayer("f", {
     upgrades: {
         11: {
             title: "Placeholder Upgrade",
-            description: "Wait for more updates. For now, +1 point per second.",
-            cost: new Decimal(1),
-        }
+            description: "Wait for more updates. Start gaining 1 point per second.",
+            cost: new Decimal(0),
+        },
     }
 })
