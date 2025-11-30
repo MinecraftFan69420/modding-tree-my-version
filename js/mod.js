@@ -1,5 +1,5 @@
 let modInfo = {
-	name: "The Discord Incremental Tree",
+	name: "The ??? Tree",
 	author: "ur average minecraftian",
 	pointsName: "point(s)",
 	modFiles: ["layers/first.js", "tree.js"],
